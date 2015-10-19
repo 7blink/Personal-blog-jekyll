@@ -1,0 +1,37 @@
+# Site settings
+title: 7 Blink
+motto: Creating Possibilities
+email: #
+description: > # this means to ignore newlines until "baseurl:"
+  A simple blog for my current programming projects.  Python, Django, Java, Javascript
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://blog.7blink.com" # the base hostname & protocol for your site
+twitter_username: #
+github_username:  7blink
+disqus: 7blink
+
+# Build settings
+markdown: redcarpet
+permalink: pretty
+highlighter: rouge
+
+paginate: 4
+#if you want the blog on a different page use the line below
+#paginate_path: "/blog/page:num/"
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+navbar:
+  archive: true
+  categories: true
+  tags: true
+  about: true
+
+rename_navbar:
+  home: home
+  archive: archive
+  category: programming languages
+  tags: tags
+  about: about

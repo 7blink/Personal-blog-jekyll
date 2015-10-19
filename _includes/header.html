@@ -1,0 +1,95 @@
+<header class="header">
+	<div class="header-container">
+		<div class ="logo">
+			<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/images/logo.png" alt="{{ site.title }}" ></a>
+			<br>
+		<div>
+		<div class="nav">
+			{% if page.path == "index.html" %}
+			<span class="title">
+				<li>
+					<a href="{{ site.baseurl }}/">{{site.rename_navbar.home}}</a>
+				</li>
+			</span>
+			{% else %}
+				<li>
+					<a href="{{ site.baseurl }}/">{{site.rename_navbar.home}}</a>
+				</li>
+			{% endif %}
+			{% if site.navbar.archive == true %}
+			{% if page.path == "archive.html" %}
+			<span class="title">
+				<li>
+					<a href="{{ site.baseurl }}/archive">{{site.rename_navbar.archive}}</a>
+				</li>
+			</span>
+			{% else %}
+				<li>
+					<a href="{{ site.baseurl }}/archive">{{site.rename_navbar.archive}}</a>
+				</li>
+			{% endif %}
+			{% endif %}
+			{% if site.navbar.categories == true %}
+			{% if page.path == "category.html" %}
+			<span class="title">
+				<li>
+					<a href="{{ site.baseurl }}/category">{{site.rename_navbar.category}}</a>
+				</li>
+			</span>
+			{% else %}
+				<li>
+					<a href="{{ site.baseurl }}/category">{{site.rename_navbar.category}}</a>
+				</li>
+			{% endif %}
+			{% endif %}
+			{% if site.navbar.tags == true %}
+			{% if page.path == "tags.md" %}
+			<span class="title">
+				<li>
+					<a href="{{ site.baseurl }}/tags">{{site.rename_navbar.tags}}</a>
+				</li>
+			</span>
+			{% else %}
+				<li>
+					<a href="{{ site.baseurl }}/tags">{{site.rename_navbar.tags}}</a>
+				</li>
+			{% endif %}
+			{% endif %}
+			{% if site.navbar.about == true %}
+			{% if page.path == "about.md" %}
+			<span class="title">
+				<li>
+					<a href="{{ site.baseurl }}/about">{{site.rename_navbar.about}}</a>
+				</li>
+			</span>
+			{% else %}
+				<li>
+					<a href="{{ site.baseurl }}/about">{{site.rename_navbar.about}}</a>
+				</li>
+			{% endif %}
+			{% endif %}
+		</div>
+		<div class="description"> {{ site.motto }} </div>
+		<ul class="social-links">
+			{% if site.github_username %}
+			<li>
+				<a href="https://github.com/{{ site.github_username }}" title="Github">
+					<img width="19px" height="19px" src="{{ site.baseurl }}/images/github.png"/>
+				</a>
+			</li>
+			{% endif %}
+			<li>
+				<a href="{{ site.baseurl }}/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="{{ site.baseurl }}/images/rss.png"/>
+				</a>
+			</li>
+			{% if site.twitter_username %}
+		<li>
+				<a href="https://twitter.com/{{ site.twitter_username }}" title="Twitter">
+					<img width="19px" height="19px" src="{{ site.baseurl }}/images/twitter.png"/>
+				</a>
+		</li>
+		{% endif %}
+		</ul>
+	</div>
+</header>

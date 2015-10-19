@@ -1,0 +1,159 @@
+---
+layout: post
+title:  "A Tale of Two Languages"
+date:   2015-09-22 16:05:00
+categories: Java C
+permalink: C_vs_ Java
+published: true
+tags:
+- java
+- c code
+---
+![CvsJava](/images/CvsJava.png)It was the best of times, it was the worst of times.  Today's computers are more advanced than ever before, and yet the top two programming languages have two very different programming styles.  Those are C and Java.  Let's take a look into more detail.
+
+C first appeared in 1972 and has many infuences on later languages.  The advantages that C has over Java is that it gets compiled into machine code.  This means that in many cases it is able to run more efficient than code written in Java or Python.  The disadvantage is that it has to be compiled for each operating system.
+
+Let's take a look at some see code to see how it looks.  This code will ask the user for a range of number, then it will return all the prime numbers within that range.
+
+{% highlight c %}
+#include <math.h>
+#include <stdio.h>
+int main(void) {
+  bool isItPrime(int number);
+  int lowerLimit, upperLimit;
+  printf("This program will list all the prime numbers within a given range\n");
+  printf("To begin, please enter the lower limit of the range: ");
+  scanf("%i",&lowerLimit);
+  printf("Thank you.  Now please enter an upper limit for the range: ");
+  scanf("%i",&upperLimit);
+  printf("\n\nThe Prime Numbers Are:\n");
+
+  while(lowerLimit <=upperLimit ){
+    if(isItPrime(lowerLimit)==true){
+      printf("%d\n",lowerLimit);
+    }
+    lowerLimit=lowerLimit+1;
+  }
+  return 0;
+}
+
+bool isItPrime(int number)
+{
+  int limit, i =2;
+  //optimized to only check factors up to the square root plus a couple
+  limit = sqrt(number+1)+1;
+
+  //Test if number is 1 or 2
+  if(number==1){return false;}
+  else if(number==2){return true;}
+  else if(number < 1){return false;}
+  else {
+    //for all other numbers, it will test by dividing the number by every other number
+      while( i < limit ) {
+          if( number % i == 0 ){
+            return false;
+          }
+          i++;
+      }
+      //If the while loop didn't find any factors, then it must be prime
+      return true;
+
+  }
+}
+{% endhighlight %}
+
+Check out the code on github [https://github.com/7blink/Prime-List/blob/master/primelist.c](https://github.com/7blink/Prime-List/blob/master/primelist.c)
+
+![C](/images/Post2-1.png)
+
+Looking over the code, it is pretty straightforward and easy to follow.  
+
+Now let's take a look at the same code in Java.  Java was introduced in 1995 and has taken many influences from C.  The two main improvements over C are Object Oriented Programming, and the Java Virtual Machine.  
+
+OOP allowes objects to be given defined functions that they can use and not allow other functions to be run on the objects.  This gives the code more integrity.
+
+The other advantage is the Java Virtual Machine.  The JVM allowes code to be written once and run anywhere.  Because Java is inheirently about the relationship between Objects and their Classes, java code can be run on any computer that has JVM installed on it.  No need to worry about compiling or compilation errors like with C.  This has given Java a huge advantage over C.
+
+Let's take a look at the same code in Java:
+
+{% highlight java %}
+//Program will create an array of prime numbers within a user's defined range
+//Program will then print out the array.
+import java.util.Scanner;
+public class primearray {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner userInput = new Scanner(System.in);
+		int lowRange;
+		int high;
+		int arrayCount = 0;
+		int arrayLength = 0;
+
+		//Get user input
+		System.out.println ("This program will list all prime numbers within a range.");
+		System.out.println ("Please enter the lower range: ");
+		lowRange = userInput.nextInt();
+
+		System.out.println ("Please enter the upper range: ");
+		high = userInput.nextInt();
+
+
+		//Close the user input
+		userInput.close();
+
+		//loop to determine array length
+		for (int i = lowRange; i <= high; i++){
+			if (isPrime(i)){
+				arrayLength = arrayLength + 1;
+			}
+		}
+
+		//Declare the array
+		int[] primeArray = new int [(arrayLength)];
+
+		//loop to test for prime numbers
+		for (int i = lowRange; i <= high; i++){
+
+			//System.out.println("number " + i + " is " + isPrime(i));
+			if (isPrime(i)){
+				primeArray[arrayCount] = i;
+				arrayCount = arrayCount + 1;
+			}
+		}
+		//Print out the results
+		System.out.println("\n\nThe prime numbers in that range are: ");
+		for (int i = 0; i < primeArray.length; i++){
+		System.out.println((primeArray[i]));
+		}
+	}
+
+
+
+	//method to test for prime number.
+	//returns true or false.
+	public static boolean isPrime(int number){
+		if (number < 2){
+			return false;
+		}
+		//loop tests if there is a divisor.
+		//if one if found, return false.
+		//else return true.
+		for(int i = 2; i < number; i++ ) {
+			if(number%i == 0){
+				return false;
+			}
+		}
+		return true;
+	}
+}
+{% endhighlight %}
+
+Check out the code on github [https://github.com/7blink/Prime-List/blob/master/primearray.java](https://github.com/7blink/Prime-List/blob/master/primearray.java)
+
+![Java](/images/Post2-3.png)
+
+As you can see, the code appears a bit more complex.  With the addition of classes that our simple code does not make use of.  In a future post, I will show a small game I made in which OOP allowes many enemies to be made from the same few lines of code.
