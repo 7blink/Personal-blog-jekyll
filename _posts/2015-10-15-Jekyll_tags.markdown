@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Jekyll - How to add Tags"
+title:  "Jekyll - Tags without plugins"
 date:   2015-10-15 17:31:00
 categories: HTML Javascript
 permalink: Jekyll_tags
@@ -20,16 +20,25 @@ Most of the function happens on the tags page.  If you haven't already, create a
 
 {% highlight javascript %}
 {% raw  %}
+
+
 <script type="text/javascript">
 // take the url #div and make that display visable
 window.onload = function() {
   var url_arr = document.URL.split('#');
       page    = url_arr[url_arr.length - 1];
-      document.getElementById(page).style.display="block";
+      console.log(page);
+        document.getElementById(page).style.display="block";
 }
 
 // on click, switch that div between visiable and invisiable
 function toggle_visibility(id) {
+  var tags = document.getElementById('tags_options').children;
+  var i = 1;
+  for (i; i < tags.length; i++) {
+    console.log(tags[i]);
+    tags[i].style.display="none";
+  }
    var tag = document.getElementById(id);
    if(tag.style.display == 'block')
       tag.style.display = 'none';
@@ -37,6 +46,7 @@ function toggle_visibility(id) {
       tag.style.display = 'block';
 }
 </script>
+
 <!-- Create a list of all the tags and loop through one at a time -->
 <div class="tags_page"><p>
 {% capture tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
@@ -44,7 +54,7 @@ function toggle_visibility(id) {
 {% for item in (0..site.tags.size) %}{% unless forloop.last %}
 {% capture word %}{{ tag[item] | strip_newlines  }}{% endcapture %}
 
-<!-- For each tag, create an invisiable div with each tag's posts.  Also add onclick toggle. -->
+<!-- For each tag, create a link with and add onclick. -->
 <a href="#{{ word }}" onclick="toggle_visibility('{{ word }}');">{{ word }}</a>
 
 {% endunless %}{% endfor %}
@@ -52,6 +62,7 @@ function toggle_visibility(id) {
 </div>
 <hr id="line"> <br />
 <div class="tags_page"><p>
+  <div id="tags_options">
 {% capture tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
 {% assign tag = tags | split:',' ' ' | sort %}
 {% for item in (0..site.tags.size) %}{% unless forloop.last %}
@@ -67,6 +78,7 @@ function toggle_visibility(id) {
 </ul>
 </div>
 {% endunless %}{% endfor %}
+</div>
 </p>
 </div>
 {% endraw %}

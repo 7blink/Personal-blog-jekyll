@@ -1,7 +1,7 @@
 <header class="header">
 	<div class="header-container">
 		<div class ="logo">
-			<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/images/logo.png" alt="{{ site.title }}" ></a>
+			<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}{{ site.logo }}" {% if site.logo-height %}style="height:{{site.logo-height}}" {% endif %} {% if site.logo-maxheight %}style="max-height:{{site.logo-maxheight}}" {% endif %} alt="{{ site.title }}" ></a>
 			<br>
 		<div>
 		<div class="nav">
