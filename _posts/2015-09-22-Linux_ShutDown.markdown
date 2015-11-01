@@ -9,7 +9,7 @@ tags:
 - shell
 - bash
 - command line
-- Linux
+- linux
 - update
 ---
 

@@ -16,6 +16,9 @@ I wanted to write a quick post to everyone about how to add tags to your jekyll 
 
 I wrote a little javascript that will allow you to add tags to your webpage without having to use a plug in.  This is useful if you can't install a plug in (such as if you are using github to generate the pages) or if you just don't want to install another program on your computer (keep it simple).  
 
+If you want to check out the current status of my Jekyll theme, you can check it out at:<br>
+[https://github.com/7blink/7blink-theme](https://github.com/7blink/7blink-theme)
+
 Most of the function happens on the tags page.  If you haven't already, create a tags.html page and then add:
 
 {% highlight javascript %}

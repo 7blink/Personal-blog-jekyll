@@ -1,7 +1,7 @@
 <header class="header">
 	<div class="header-container">
 		<div class ="logo">
-			<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}{{ site.logo }}" {% if site.logo-height %}style="height:{{site.logo-height}}" {% endif %} {% if site.logo-maxheight %}style="max-height:{{site.logo-maxheight}}" {% endif %} alt="{{ site.title }}" ></a>
+			<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}{{ site.logo }}" {% if site.logo-width %}style="width:{{site.logo-width}}px" {% endif %}alt="{{ site.title }}" ></a>
 			<br>
 		<div>
 		<div class="nav">
@@ -39,6 +39,36 @@
 			{% else %}
 				<li>
 					<a href="{{ site.baseurl }}/category">{{site.rename_navbar.category}}</a>
+				</li>
+			{% endif %}
+			{% endif %}
+
+			{% if site.additional_pages != null %}
+			{% for stuffs in site.additional_pages %}{% assign stuff = stuffs | split:',' ' ' | sort %}
+			{% if page.path == stuff".md" %}
+			<span class="title">
+				<li>
+					<a href="{{ site.baseurl }}/{{ stuff }}">{{ stuff }}</a>
+				</li>
+			</span>
+			{% else %}
+				<li>
+					<a href="{{ site.baseurl }}/{{ stuff }}">{{ stuff }}</a>
+				</li>
+			{% endif %}
+			{% endfor %}
+			{% endif %}
+
+			{% if site.navbar.store == true %}
+			{% if page.path == "store.md" %}
+			<span class="title">
+				<li>
+					<a href="{{ site.baseurl }}/store">{{site.rename_navbar.store}}</a>
+				</li>
+			</span>
+			{% else %}
+				<li>
+					<a href="{{ site.baseurl }}/store">{{site.rename_navbar.store}}</a>
 				</li>
 			{% endif %}
 			{% endif %}

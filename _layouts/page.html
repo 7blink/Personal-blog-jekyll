@@ -2,10 +2,20 @@
 layout: default
 ---
 <div class="post">
+  {% if site.navbar.store == true %}
+    {% if page.path == "store.md" %}
+      <div class="view_cart">
+        {% include view_cart.html %}
+      </div>
+    {% endif %}
+  {% endif %}
 
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
   </header>
+
+
+
   <br>
   <article class="post-content">
     {{ content }}

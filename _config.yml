@@ -1,6 +1,6 @@
 # Site settings
 title: 7 Blink
-motto: Creating Possibilities
+motto: efficient
 email: #
 description: > # this means to ignore newlines until "baseurl:"
   A simple blog for my current programming projects.  Python, Django, Java, Javascript
@@ -8,8 +8,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://blog.7blink.com" # the base hostname & protocol for your site
 
 logo: /images/logo.png
-logo-height: # set if image is too small.  eg 300px
-logo-maxheight: # set if image is too big.  eg 100px
+logo-width: # used to set width of logo.  eg 750
 
 twitter_username: #
 github_username:  7blink
@@ -17,6 +16,8 @@ disqus: 7blink
 
 # Build settings
 markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "strikethrough", "superscript", "with_toc_data"]
 permalink: pretty
 highlighter: rouge
 
@@ -31,12 +32,17 @@ sass:
 navbar:
   archive: true
   categories: true
+  store: false
   tags: true
-  about: true
+  about: false
 
 rename_navbar:
   home: home
   archive: archive
   category: programming languages
+  store: store
   tags: tags
   about: about
+
+additional_pages:
+  - Feedback
