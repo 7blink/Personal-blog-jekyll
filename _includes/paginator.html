@@ -1,0 +1,67 @@
+
+<div class="post">
+  <ul class="post-list">
+    {% for post in paginator.posts %}
+      <li>
+
+        <h3>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h3>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y %H:%m" }}</span>
+
+		<div class="content">
+      {% if post.image %} <a href="{{ post.url | prepend: site.baseurl }}" style="text-decoration: none;"> <img src="{{post.image}}" {% if post.img-width %}style="width:{{post.img-width}}px" {% endif %}alt="{{ post.title }}"> </a>{% endif %}
+      {% if post.yt %}<a href="{{ post.url | prepend: site.baseurl }}" style="text-decoration: none;"> <img src="https://i.ytimg.com/vi/{{ post.yt }}/hqdefault.jpg" {% if post.img-width %}style="width:{{post.img-width}}px" {% endif %}alt="{{ post.title }}"> </a><br>{% endif %}
+      {% if post.gallery.size != 0 %}
+        <div class="image-gallery">
+          {% for item in post.gallery %}
+            <img
+                width="{{ post.gallery-width }}"
+                onclick="this.width=this.naturalWidth"
+                ondblclick="this.width={{ post.gallery-width }}"
+                alt="RESIZE IMAGE"
+                src="{{ item }}"
+             />
+          {% endfor %}
+        </div>
+        <div class="clear"></div>
+      {% endif %}
+
+		{{ post.excerpt }}
+    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
+    <br>
+    <br>
+    <hr id="line">
+        </div>
+		<br>
+      </li>
+      <br>
+    {% endfor %}
+  </ul>
+</div>
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+  {% else %}
+    <span>&laquo; Prev</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <em>{{ page }}</em>
+    {% elsif page == 1 %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+  {% else %}
+    <span>Next &raquo;</span>
+  {% endif %}
+</div>
+{% endif %}

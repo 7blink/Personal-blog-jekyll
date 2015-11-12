@@ -16,22 +16,8 @@ layout: default
   </header>
 
   <article class="post-content">
-    {% if page.image %}<img src="{{ page.image }}"> {% endif %}
-    {% if page.yt %}<div style="text-align:center"><iframe width="560" height="315" src="https://www.youtube.com/embed/{{ page.yt }}" frameborder="0" allowfullscreen></iframe></div>{% endif %}
-    {% if page.gallery.size != 0 %}
-      <div class="image-gallery">
-        {% for item in page.gallery %}
-          <img
-              width="{{ page.gallery-width }}"
-              onclick="this.width=this.naturalWidth"
-              ondblclick="this.width={{ page.gallery-width }}"
-              alt="RESIZE IMAGE"
-              src="{{ item }}"
-           />
-        {% endfor %}
-      </div>
-      <div class="clear"></div>
-    {% endif %}
+
+    {% include images.html %}
 
     {{ content }}
   </article>

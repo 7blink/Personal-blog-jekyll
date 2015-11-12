@@ -1,6 +1,6 @@
 # Site settings
 title: 7 Blink
-motto: efficient
+motto: Efficient
 email: #
 description: > # this means to ignore newlines until "baseurl:"
   A simple blog for my current programming projects.  Python, Django, Java, Javascript
@@ -21,7 +21,7 @@ redcarpet:
 permalink: pretty
 highlighter: rouge
 
-paginate: 4
+paginate: 5
 #if you want the blog on a different page use the line below
 #paginate_path: "/blog/page:num/"
 
