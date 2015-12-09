@@ -7,7 +7,7 @@
         <h3>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h3>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y %H:%m" }}</span>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
 		<div class="content">
       {% if post.image %} <a href="{{ post.url | prepend: site.baseurl }}" style="text-decoration: none;"> <img src="{{post.image}}" {% if post.img-width %}style="width:{{post.img-width}}px" {% endif %}alt="{{ post.title }}"> </a>{% endif %}
