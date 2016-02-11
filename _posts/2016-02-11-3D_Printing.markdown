@@ -1,0 +1,20 @@
+---
+layout: post
+title:  "3d Printing"
+date:   2016-02-11 20:05:00
+categories: Maker
+permalink: Platform_Game
+image: /images/2016Feb/3dPrinting1.JPG
+img-width: 550
+published: true
+tags:
+- maker
+comments: true
+---
+These are some small 3d printed pieces that I made.  I recently had some time to experiment with a 3d printer and I have been liking what I can do with it.  All the pieces are from www.thingiverse.com and I can imagine it took the creators some time to make them.  
+
+The first piece is a minion holding a heart for Valentine's Day.  The second piece is a blue spinning top that comes in two pieces and gets glued together.  The third is a Munchkin counter for the card game Munchkin.  
+
+![munchkin counter](/images/2016Feb/3dPrinting2.JPG)
+
+If you have never played the game before, the object is to move through the levels from level 1 through level 10.  The counter is a simple alternative to bringing the game board with you.  It was 3d printed in two pieces and then snapped together.
