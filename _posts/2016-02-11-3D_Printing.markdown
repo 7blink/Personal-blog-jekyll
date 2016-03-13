@@ -3,7 +3,7 @@ layout: post
 title:  "3d Printing"
 date:   2016-02-11 20:05:00
 categories: Maker
-permalink: Platform_Game
+permalink: 3d_Printing
 image: /images/2016Feb/3dPrinting1.JPG
 img-width: 550
 published: true
